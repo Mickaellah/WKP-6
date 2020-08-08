@@ -38,3 +38,41 @@ const foods = [
 	},
 ];
 
+const section = document.querySelector('.card-2');
+// const addButtons = document.querySelector(".add-btn");
+
+const handleClick = (e) => {
+    const addButtons = e.target.matches('button.add-btn');
+    // console.log(addButtons);
+
+    const foodList = foods;
+    const id = foods.id;
+    const price = foods.price;
+    const title = foods.title;
+    const spicy = foods.spicy;
+    const vegetarian = foods.vegetarian;
+
+    const order = 
+`
+    <article>
+        <ul>
+            <li>
+                <p>
+                    ${title}
+                </p>
+                <span>
+                    
+                </span>
+
+                <span>
+                    ${price}
+                </span>
+            </li>
+        </ul>
+    </article>
+`;
+section.insertAdjacentHTML('beforeend', order);
+    console.log(order);
+};
+
+window.addEventListener('click', handleClick);

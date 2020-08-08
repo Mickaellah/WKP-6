@@ -2,6 +2,24 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 25rem);
+    grid-column-gap: 32px;
+    column-gap: 32px;
+}
+
+section:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+section:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
 h1 {
     text-align: center;
 }
@@ -10,6 +28,7 @@ h1 {
     max-width: 25rem;
     background-color: lightgray;
     border-radius: 10px;
+    margin-block-end: 32px;
 }
 
 .card > header {
@@ -63,5 +82,7 @@ h1 {
     color: whitesmoke;
     border-radius: 5px;
     margin-block-start: 32px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
 }
 
