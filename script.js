@@ -38,41 +38,69 @@ const foods = [
 	},
 ];
 
-const section = document.querySelector('.card-2');
-// const addButtons = document.querySelector(".add-btn");
+// const foodList = document.querySelector('.food-list');
+// const section = document.querySelector('.card-2');
 
-const handleClick = (e) => {
-    const addButtons = e.target.matches('button.add-btn');
-    // console.log(addButtons);
 
-    const foodList = foods;
-    const id = foods.id;
-    const price = foods.price;
-    const title = foods.title;
-    const spicy = foods.spicy;
-    const vegetarian = foods.vegetarian;
 
-    const order = 
-`
-    <article>
+const container = document.querySelector('.card');
+const generateButton = document.querySelector('.generate-btn');
+
+const listOfFood = foods.map(food => `
+<ul>
+    <li class="food-list spicy">
+        <p class="title">
+            ${food.title}
+        </p>
+        <span class="price">
+            ${food.price} Ar
+        </span>
+        <button 
+        type="button"
+        class="add-btn"
+        >Add</button>
+    </li>
+</ul>
+`)
+.join();
+
+container.insertAdjacentHTML('beforeend', listOfFood);
+
+
+
+const spicyFood = foods.filter(food => food.spicy === true);
+console.log(spicyFood);
+
+function checkbox() {
+    const spice = document.querySelector('#spicy');
+    if (spice.checked == true) {
+        const spicyFoods = `
         <ul>
             <li>
-                <p>
-                    ${title}
+                <p class="title">
+                    ${foods[i].title}
                 </p>
-                <span>
-                    
+                <span class="price">
+                    ${foods[i].price} Ar
                 </span>
-
-                <span>
-                    ${price}
-                </span>
+                <button 
+                type="button"
+                class="add-btn"
+                >Add</button>
             </li>
+            <li></li>
         </ul>
-    </article>
-`;
-section.insertAdjacentHTML('beforeend', order);
-    console.log(order);
-};
+        `;
+    }
+}
 
-window.addEventListener('click', handleClick);
+
+const foodForVegetarian = foods.filter(food => food.vegetarian === true);
+console.log(foodForVegetarian);
+
+
+
+
+
+
+

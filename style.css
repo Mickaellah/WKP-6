@@ -86,3 +86,8 @@ h1 {
     grid-row: 2 / 3;
 }
 
+
+.total {
+    text-align: end;
+}
+
