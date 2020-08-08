@@ -38,14 +38,16 @@ const foods = [
 	},
 ];
 
-// const foodList = document.querySelector('.food-list');
-// const section = document.querySelector('.card-2');
-
-
-
+// Grab some of the elments that are needed.
 const container = document.querySelector('.card');
-const generateButton = document.querySelector('.generate-btn');
+const order = document.querySelector('.order');
+const list = document.querySelector('.food-list');
+const confirmBtn = document.querySelector('.btn-confirm');
+const modalOuter = document.querySelector('.outer-modal');
+const innerModal = document.querySelector('.inner-modal');
 
+
+// Generate the object to html.
 const listOfFood = foods.map(food => `
 <ul>
     <li class="food-list spicy">
@@ -64,39 +66,129 @@ const listOfFood = foods.map(food => `
 `)
 .join();
 
+
+// Put the html in the dom.
 container.insertAdjacentHTML('beforeend', listOfFood);
 
 
 
-const spicyFood = foods.filter(food => food.spicy === true);
-console.log(spicyFood);
-
-function checkbox() {
-    const spice = document.querySelector('#spicy');
-    if (spice.checked == true) {
-        const spicyFoods = `
-        <ul>
-            <li>
+// A function for the spicy food checkbox.
+const spice = document.querySelector('#spicy');
+const checkbox = (checkbox) => {
+    if (checkbox.checked === true) {
+        const spicyFood = foods.filter(food => food.spicy === true);
+        console.log(spicyFood);
+        const foodSpicy = spicyFood.map(food => 
+        `<ul>
+            <li class="food-list">
                 <p class="title">
-                    ${foods[i].title}
+                    ${food.title}
                 </p>
                 <span class="price">
-                    ${foods[i].price} Ar
+                    ${food.price} Ar
                 </span>
                 <button 
                 type="button"
                 class="add-btn"
                 >Add</button>
             </li>
-            <li></li>
         </ul>
-        `;
+        `);
+        container.innerHTML = foodSpicy.join('');
     }
-}
+};
 
 
-const foodForVegetarian = foods.filter(food => food.vegetarian === true);
-console.log(foodForVegetarian);
+
+// A function the vegetariane food checkbox.
+const vegetarian = document.querySelector('#vegetarian');
+const checkbox2 = (checkbox) => {
+    if (checkbox.checked === true) {
+        const vegetaranFood = foods.filter(food => food.vegetarian === true);
+        const foodForVegetaran = vegetaranFood.map(food => 
+        `<ul>
+            <li class="food-list">
+                <p class="title">
+                    ${food.title}
+                </p>
+                <span class="price">
+                    ${food.price} Ar
+                </span>
+                <button 
+                type="button"
+                class="add-btn"
+                >Add</button>
+            </li>
+        </ul>
+        `);
+        container.innerHTML = foodForVegetaran.join('');
+    }
+};
+
+// window.addEventListener('click', (e) => {
+//     const addBtns = e.target.matches('button.add-btn');
+//     console.log(addBtns);
+// });
+
+
+// A functon to create the modal.
+const handleClick = (e) => {
+    const myModal = `
+        <section>
+            <header>
+                <h2>
+                    Thank you!
+                </h2>
+            </header>
+
+            <div>
+                <p>
+                    Your order is confirmed. We will prepare your food, and deliver it to you when it's rieady.
+                </p>
+                <p>
+                    The total amount is
+                </p>
+            </div>
+
+            <button type="button" class="close-button">Close</button>
+        </section>
+    `;
+    innerModal.insertAdjacentHTML("beforeend", myModal);
+    modalOuter.classList.add('open');
+};
+confirmBtn.addEventListener('click', handleClick);
+
+// A functcion for closing the modal.
+const closeModal = (e) => {
+	modalOuter.classList.remove('open');
+};
+
+
+// Event listeners for closing the modal by clicking outside or pressing escape key.
+
+modalOuter.addEventListener('click', (e) => {
+	const isOutside = !e.target.closest('.inner-modal');
+    if (isOutside) {
+		closeModal();
+
+	}
+});
+
+window.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape') {
+		closeModal();
+	}
+});
+
+
+// window.addEventListener('click', (e) => {
+//     const closeBtn = e.target.matches('button.close-button');
+//     console.log(closeBtn)
+//     modalOuter.classList.remove('open');
+// });
+
+
+
 
 
 

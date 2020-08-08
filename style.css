@@ -49,6 +49,10 @@ h1 {
     margin-inline-start: 32px;
 }
 
+ul {
+    margin: 0;
+}
+
 .food-description {
     margin: 0;
 }
@@ -88,6 +92,39 @@ h1 {
 
 
 .total {
+    text-align: end;
+}
+
+.outer-modal {
+    display: grid;
+    place-items: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 80%, 80%, 0.5);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.outer-modal.open {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.inner-modal {
+    padding: 32px;
+    background-color: azure;
+    max-width: 400px;
+    max-height: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close-button {
+    background-color: black;
+    color: whitesmoke;
     text-align: end;
 }
 
