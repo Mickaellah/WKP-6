@@ -1,92 +1,26 @@
 # WKP6 - Hungry Student Restaurant
 
-### Another website about food, really...
+## Code structure.
 
-Yes, but who doesn't like food? 😄
+First, I grabbed all the elements that I might need during the time that I am coding. Second, I generated the object into HTML by looping through it using map() method and created an HTML string and also used ${} to access the information from the object and add it to DOM. Created several function that deal with checkboxes. After that I created the modal.
 
-This time, we're going to build a food delivery app, where we can see the meal options, select them, and see the result in our cart.
+## About improvement.
 
-### Users must be able to :
+If I had more time I would figure out why do my checkboxes did't work as I expected it to be and worked out how to get the order list in the right side.
 
--   See a list of five meal options
--   See the prices of each meal option
--   Add a meal to the cart
--   Filter the list to see only the vegetarian meals, or only the spicy ones
--   See their total bill
--   “Check out” - this doesn’t have to process payment, just simply display
-    a message stating the order as been confirmed.
+## Something that I learned.
 
-### Bonus :
+There weren't really new things in this project, all the technics that we should use in this project are technics that we have seen like event delegation, generate object into HTML, use of map(), filter() and reduce() and also creating modal so I don't know what is the new thing there.
 
--   Change the quantity of meals in the cart
--   Remove a meal from the cart
+## Challenge.
 
-Here is an example of layout :
+For me, the most challenging part was showing the result of the checkboxes after filtering them which I could figure out how to deal with that even if I tried.
 
-![assets/1.png](assets/1.png)
+## More explanation.
 
-And when I click on the _Confirm Order_ button, I can display a message to show the total bill from the order.
+I need more explanation about the checkboxes and to get the times (*2 or *6) for example.
 
-![assets/2.png](assets/2.png)
+## Comments.
 
-### Food list
+I could deal with lots of things this time, I focused with one thing at a time and I spent most of my time to figure out my problem with the checkboxes.
 
-Here's the food object :
-
-```jsx
-const foods = [
-	{
-		id: 'ravitoto',
-		price: 5000,
-		title: 'Ravitoto',
-		spicy: true,
-		vegetarian: false,
-	},
-	{
-		id: 'pasta',
-		price: 4000,
-		title: 'Pasta',
-		spicy: true,
-		vegetarian: true,
-	},
-	{
-		id: 'burger',
-		price: 5000,
-		title: 'Burger',
-		spicy: false,
-		vegetarian: false,
-	},
-	{
-		id: 'rice',
-		price: 2000,
-		title: 'Rice and Leaves',
-		spicy: false,
-		vegetarian: true,
-	},
-	{
-		id: 'mofogasy',
-		price: 500,
-		title: 'Mofogasy',
-		spicy: false,
-		vegetarian: false,
-	},
-];
-```
-
-The **id** here is a unique string, is role is to identify an element inside the list. The title will be the food name shown to the user.
-
-You'll also have an **order** collection, where you will push a food object every time the user add an element to his order.
-
-### Maps, Filter, Reduce, and other friends
-
--   To generate any list of element (for example, the list of food), **Map** is really useful.
--   To get the full price of list of items, **Reduce** is the perfect use case.
--   To count how many times an item is in a list, you could **Filter** the list and see the length of the result, or use a **Reduce** to count all of the instances.
-
-But this is just one way to think about that. Feel free to try any other logic you have in mind.
-
-### 💡Tips
-
--   Don't forget to clean your code, and update your readme before Monday morning.
-
-Good luck!
